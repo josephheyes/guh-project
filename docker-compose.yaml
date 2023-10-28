@@ -1,0 +1,7 @@
+services:
+  frontend:
+    build:
+      context: ./
+    container_name: jet-emissions-tool
+    ports:
+      - "80:80"
