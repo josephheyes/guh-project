@@ -2,12 +2,14 @@ import datetime
 from dotenv import load_dotenv, find_dotenv
 from opensky_api import OpenSkyApi
 from flask import Flask
+from flask_cors import CORS
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from pprint import pprint
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 load_dotenv(find_dotenv())
 DB_HOST = os.environ.get("DB_HOST")
