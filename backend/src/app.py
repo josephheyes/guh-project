@@ -1,10 +1,16 @@
 import datetime
+from dotenv import load_dotenv, find_dotenv
 from opensky_api import OpenSkyApi
 from flask import Flask
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+from pprint import pprint
 import os
 
 app = Flask(__name__)
 
+load_dotenv(find_dotenv())
+DB_HOST = os.environ.get("DB_HOST")
 
 @app.route("/")
 def hello_world():
@@ -19,6 +25,11 @@ def hello_world():
     print(s)
     return "succeeded?"
 
-@app.route("/plane")
+
+@app.route("/all")
 def get_plane():
-    
+
+    # Create a new client and connect to the server
+    client = MongoClient(DB_HOST, server_api=ServerApi('1'))
+
+    return list(client["StrictlyNoEmissions"]["Company"].find())
