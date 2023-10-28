@@ -36,7 +36,7 @@ function LeaderboardItem({test}: Props) {
           }}/>
           <ListItemText
             sx={{
-              color: (theme) => theme.palette.primary.dark
+              color: (theme) => theme.palette.primary.main
             }}
             primary={company}
             secondary={"C02 Emissions: " + c02Value} 

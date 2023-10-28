@@ -1,16 +1,17 @@
-import { CardContent, CardHeader, Divider, List, Paper } from '@mui/material'
+import { List } from '@mui/material'
 import LeaderboardItem from './LeaderboardItem'
+import { useState } from 'react'
 
 type Props = {
   purpose: string
 }
 
 function Leaderboard({purpose}: Props) {
+  const [items, setItems] = useState()
+
   return (
         <List>
-          <LeaderboardItem test={false}/>
-          <LeaderboardItem test={false}/>
-          <LeaderboardItem test={false}/>
+          {items}
         </List>
   )
 }

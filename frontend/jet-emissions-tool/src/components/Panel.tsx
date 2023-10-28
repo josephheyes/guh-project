@@ -1,11 +1,11 @@
-import { CardContent, CardHeader, Divider, Paper, Tab, Tabs } from '@mui/material'
-import React from 'react'
-import Leaderboard from './Leaderboard'
+import { CardContent, CardHeader, Divider, Paper, Tab, Tabs, useTheme } from '@mui/material'
 import LeaderboardTabs from './LeaderboardTabs'
 
 type Props = {}
 
 function Panel({}: Props) {
+  const theme = useTheme()
+
   return (
     <Paper
         sx={{
