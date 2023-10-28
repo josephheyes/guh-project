@@ -4,9 +4,14 @@ import React, { useEffect, useState } from 'react'
 
 type Props = {
   test: boolean
+  data: {
+    C02: number
+    Name: string
+    _id: string
+  }
 }
 
-function LeaderboardItem({test}: Props) {
+function LeaderboardItem({data, test}: Props) {
   const [open, setOpen] = useState(false)
   const [company, setCompany] = useState("<Company Name>")
   const [c02Value, setC02Value] = useState(0)
@@ -15,6 +20,9 @@ function LeaderboardItem({test}: Props) {
     if(test) {
       setC02Value(Math.random() * (5000 - 1 + 1) + 1)
       setCompany("<Company Name>")
+    } else {
+      setC02Value(data.C02)
+      setCompany(data.Name)
     }
   }, [test])
 
