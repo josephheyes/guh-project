@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import React from 'react'
-import world from '../assets/world.jpg'
-import Leaderboard from '../components/Leaderboard'
+import jet from '../assets/jet.jpg'
+import Panel from '../components/Panel'
 
 function HomePage() {
   return (
@@ -10,12 +10,12 @@ function HomePage() {
       justifyContent={'center'}
       alignItems={'center'}
       sx={{
-        backgroundColor: (theme) => theme.palette.primary.main,
+        backgroundImage: `url(${jet})`,
         backgroundSize: 'cover',
         height: '100vh',
       }}
     >
-      <Leaderboard />
+      <Panel />
     </Box>
   )
 }

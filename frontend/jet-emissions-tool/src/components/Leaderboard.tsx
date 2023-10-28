@@ -1,29 +1,17 @@
-import { List, Paper } from '@mui/material'
-import React from 'react'
-import { useTheme } from '@mui/material'
-import PlaneItem from './PlaneItem'
+import { CardContent, CardHeader, Divider, List, Paper } from '@mui/material'
+import LeaderboardItem from './LeaderboardItem'
 
-type Props = {}
+type Props = {
+  purpose: string
+}
 
-function Leaderboard({}: Props) {
-  const theme = useTheme()
-
+function Leaderboard({purpose}: Props) {
   return (
-    <Paper
-      sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          height: '80vh',
-          width: '65vh',
-      }}
-    >
-      <List sx={{
-        width: '95%'
-      }}>
-        <PlaneItem />
-        <PlaneItem />
-      </List>
-    </Paper>
+        <List>
+          <LeaderboardItem test={false}/>
+          <LeaderboardItem test={false}/>
+          <LeaderboardItem test={false}/>
+        </List>
   )
 }
 
