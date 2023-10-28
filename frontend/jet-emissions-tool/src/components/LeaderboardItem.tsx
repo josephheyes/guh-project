@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 type Props = {
   test: boolean
   data: {
-    C02: number
+    CO2: number
     Name: string
     _id: string
   }
@@ -21,7 +21,7 @@ function LeaderboardItem({data, test}: Props) {
       setC02Value(Math.random() * (5000 - 1 + 1) + 1)
       setCompany("<Company Name>")
     } else {
-      setC02Value(data.C02)
+      setC02Value(data.CO2)
       setCompany(data.Name)
     }
   }, [test])

@@ -14,18 +14,23 @@ function Leaderboard({purpose}: Props) {
     async function apiCall() {
       const res = await getAllCompanyData()
       console.log(res)
-      setItems(res.json())
+      setItems(res)
     }
     apiCall()
   }, [])
 
   return (
+      <div style={{
+        maxHeight: '78vh',
+        overflow: 'auto'
+      }}>
         <List>
           {items.map(item => {
             return <LeaderboardItem data={item} test={false}/>         
             }
           )}
         </List>
+      </div>
   )
 }
 
