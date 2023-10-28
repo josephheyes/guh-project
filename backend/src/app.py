@@ -18,3 +18,7 @@ def hello_world():
     s = api.get_states(icao24="3c65d6")
     print(s)
     return "succeeded?"
+
+@app.route("/plane")
+def get_plane():
+    
