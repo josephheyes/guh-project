@@ -8,19 +8,22 @@ type Props = {
 }
 
 function Leaderboard({purpose}: Props) {
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState<any[]>([])
   const [failed, setFailed] = useState(false)
 
   useEffect(() => {
     async function apiCall() {
-      const res = await getAllCompanyData()
-      if(res == undefined) {
+      let res = []
+      if(purpose === "companies") {
+        res = await getAllCompanyData()
+      }
+      if(res === undefined) {
         setFailed(true)
       }
       setItems(res)
     }
     apiCall()
-  }, [])
+  }, [purpose])
 
   if(failed) {
     return(
@@ -46,7 +49,7 @@ function Leaderboard({purpose}: Props) {
         overflow: 'auto'
       }}>
         <List>
-          {items.map(item => {
+          {items.sort((a, b) => b.CO2 - a.CO2).map(item => {
             return <LeaderboardItem data={item} test={false}/>         
             }
           )}
