@@ -1,7 +1,7 @@
 import datetime
 from dotenv import load_dotenv, find_dotenv
 from opensky_api import OpenSkyApi
-import planedb
+# import planedb
 from flask import Flask
 from flask_cors import CORS
 from pymongo.mongo_client import MongoClient
@@ -21,7 +21,7 @@ def hello_world():
     tomorrow = now - datetime.timedelta(hours=1)
     print(now.timestamp())
     print(tomorrow.timestamp())
-    print(planedb.get_planes())
+    # print(planedb.get_planes())
     api = OpenSkyApi(
         username=os.environ["OPENSKY_USERNAME"], password=os.environ["OPENSKY_PASSWORD"]
     )
